@@ -1,0 +1,142 @@
+syntax="proto3";
+package idleafk;
+
+message Formation
+{
+    sint32 id = 1; //索引
+    sint32 pos = 2; //位置索引
+    sint32 type = 3; //类型
+    sint32 identity = 4; //类型
+    repeated float kickOffPos = 5; //开球
+    repeated float minPos = 6; //最小位置
+    repeated float maxPos = 7; //最大位置
+}
+
+message FormationList
+{
+    repeated Formation rows = 1;
+}
+
+message Item
+{
+    sint32 id = 1; //道具id
+    string name = 2; //道具名称
+    string title = 3; //道具小title
+    string des = 4; //道具描述
+    sint32 itemType = 5; //道具类型
+    sint32 bagType = 6; //背包分类
+    sint32 flyIcon = 7; //物品飞向哪个图标
+    sint32 quality = 8; //品质
+    sint32 sort = 9; //背包排序
+    string iconRes = 10; //图标资源
+    string iconBottomRes = 11; //图标底板资源
+    string miniIconRes = 12; //小图标资源
+    string battleIconRes = 13; //战斗场景用图标
+    string cornerRes = 14; //角标名称
+    sint32 stack = 15; //堆叠上限
+    sint32 relationID = 16; //关联id
+    repeated sint32 equipmentExp = 17; //装备强化经验
+    repeated sint32 idleRewardId = 18; //挂机产出道具奖励Id
+    sint32 idleRewardTime = 19; //挂机产出道具时长(小时)
+    sint32 idleRewardVip = 20; //挂机产出道具是否受vip加成影响
+    repeated sint32 giftReward = 21; //打开获取奖励
+    sint32 dropBag = 22; //掉落包id
+    sint32 synthesizeNum = 23; //合成需要碎片数量
+    sint32 synthesizeDropBag = 24; //合成后掉落包id
+}
+
+message ItemList
+{
+    repeated Item rows = 1;
+}
+
+message TotalData
+{
+    string name = 1; //名字
+    repeated string courses = 2; //课程
+    Identity iden = 3; //位置
+    ItemInfo dressCost = 4; //球服
+    repeated ItemInfo drink = 5; //饮料
+}
+
+message TotalDataList
+{
+    repeated TotalData rows = 1;
+}
+
+enum Identity
+{
+    Forwad  = 0;
+    Mid  = 1; //中锋
+    Back  = 2; //后卫
+}
+
+message ItemInfo
+{
+    string itemId = 1; //名字
+    uint32 itemCount = 2; //身份
+    bool isPayed = 3; //是否支付
+}
+
+message Region
+{
+    sint32 id = 1; //索引
+    repeated float forward = 2; //前锋
+    repeated float mid = 3; //中锋
+    repeated float back = 4; //后卫
+}
+
+message RegionList
+{
+    repeated Region rows = 1;
+}
+
+message MatchParam
+{
+    float intervalUpate = 1;
+    sint32 defendPlayerNum = 2;
+    float ignoreDist = 3;
+    float ballOwnRange = 4;
+    float playerRadius = 5;
+    float grabRange = 6;
+    float ballMoveSpd = 7;
+    float width = 8;
+    float height = 9;
+    float innerWidth = 10;
+    float innerHeight = 11;
+    float outWidth = 12;
+    float outHeight = 13;
+    float centerRadius = 14;
+    float outRadius = 15;
+    float pitchScale = 16;
+    float widthSplit = 17;
+    float heightSplit = 18;
+    float verticalRange = 19;
+    float towardOffset = 20;
+    float propMaxNum = 21;
+    float shootMin = 22;
+    float shootMax = 23;
+    float dribbleMin = 24;
+    float dribbleMax = 25;
+    float grabMin = 26;
+    float grabMax = 27;
+    float disturbMin = 28;
+    float disturbMax = 29;
+    float transferMin = 30;
+    float transferMax = 31;
+    float lobshootMin = 32;
+    float lobshootMax = 33;
+    float againstMin = 34;
+    float againstMax = 35;
+    float healthMin = 36;
+    float healthMax = 37;
+    float divingMin = 38;
+    float divingMax = 39;
+    float runSpeed = 40;
+}
+
+message MatchParamList
+{
+    repeated MatchParam rows = 1;
+}
+

@@ -1,0 +1,6 @@
+{
+    "devDependencies": {
+        "protobufjs": "^6.10.2",
+        "xlsx": "^0.16.9"
+    }
+}
